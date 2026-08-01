@@ -16,4 +16,4 @@ instruction on how to run program
 - then at top bar on visual studio there is a green button(next to debug drop down menu), make sure it set to https
 - then press the button, and a website page should open up on default browser. note you may need to click the button twice,since first time may just build the project
 
-Let me know if there is any troubles by contacting me at ldubell1@umbc.edu, and sorry about the mysql stuff, couldn't figure out how to host server in time
+Let me know if there is any troubles by contacting me at ldubell1@umbc.edu
