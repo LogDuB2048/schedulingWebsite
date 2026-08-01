@@ -1,0 +1,139 @@
+﻿@model personal_assigment.Models.Multmodel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!-- this is the main page that dispaly tables of data-->
+
+<!--this is the first table that display students-->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                name
+            </th>
+            <th>
+                credits
+            </th>
+            <th>
+                <!--allow user to create a new student-->
+                <a asp-action="CreateStudent">Create</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.m_students)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.credits)
+                </td>
+                <td>
+                    <!--allows user to delete student-->
+                    <a asp-action="Delete" asp-route-id="@item.Id" asp-route-table="students" asp-route-IdName="idstudents">Delete</a>
+                </td>
+                <td>
+                    <!--allows users to view what course the student are in-->
+                    <a asp-action="displayCourses" asp-route-id="@item.Id">view classes</a>
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>
+
+<br />
+<!--this is the second table that display courses-->
+<table class=" table">
+    <thead>
+        <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Course name
+        </th>
+        <th>
+            instructor Id
+        </th>
+        <th>
+                <a asp-action="CreateCourse">Create</a>
+        </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.m_courses)
+        {
+            <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course_Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Instructor_Id)
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id" asp-route-table="course" asp-route-IdName="idcourse">Delete</a>
+                </td>
+                <td>
+                    <a asp-action="displayStudents" asp-route-id="@item.Id">view students</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<br />
+<!--this is the third table that display instructors-->
+<table class=" table">
+    <thead>
+        <tr>
+    <th>
+        ID
+    </th>
+    <th>
+         name
+    </th>
+    <th>
+        course department
+    </th>
+    <th>
+                <a asp-action="CreateInstructor">Create</a>
+    </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.m_instrucoors)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.courseDepartment)
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id" asp-route-table="instructors" asp-route-IdName="idinstructors">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>

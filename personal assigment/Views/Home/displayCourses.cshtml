@@ -1,0 +1,35 @@
+﻿@model IEnumerable<StudentCourses>
+<!--table that displays course for student-->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                name
+            </th>
+            <th>
+                <a asp-action="addStudentToCourse" asp-route-course="t">add student</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--display every course that student is enrolled in and thier grade-->
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                </td>
+                <td>
+                    <a asp-action="dropStudent"asp-route-courseId="@item.CourseId" asp-route-studentId="@item.StudentId">remove student</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
